@@ -1,0 +1,20 @@
+{
+
+  "name": "gulp-node-angular-browserify-seed",
+  "version": "0.0.1",
+  "dependencies": {
+    "gulp": "3.8.x",
+    "gulp-util": "2.2.19",
+    "gulp-jshint": "1.6.4",
+    "gulp-browserify": "0.5.x",
+    "rimraf": "0.1.0"
+  },
+
+  "devDependencies": {
+  },
+
+  "engines": {
+    "node": "0.10.x"
+  }
+
+}
