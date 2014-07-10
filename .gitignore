@@ -3,3 +3,4 @@ app/bower_components/
 app/npm-debug.log
 .idea/*
 .idea
+dist/*

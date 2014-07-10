@@ -1,23 +1,34 @@
-gulp-angular-browserify-seed
+gulp-node-angular-browserify-seed
 ============================
 
 A seed project for gulp, node, angular, and browserify projects.
 
-##Installation
+The project uses the new Google Standards for angular app folder structure as specified
+[here](https://docs.google.com/document/d/1XXMvReO8-Awi1EZXAXS4PzDzdNvV6pGcuaF4Q9821Es/pub) :
+
+#Notes
+##This project stack :
+*   AngularJS.
+*   NodeJS.
+*   Gulp.
+*   Browserify.
+
+
+#Installation
 ```
 
-#install global npm dependencies
+##install global npm dependencies
 npm install -g gulp
 
-#get npm dependencies
+##get npm dependencies
 npm install
 
 
 ```
 ##Setup
 ```
-#wire angular dependencies with browserify and gulp
-gulp browserify
+##compile project
+gulp compile
 ```
 
 #### Pull requests accepted :)
