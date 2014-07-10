@@ -12,6 +12,7 @@ The project uses the new Google Standards for angular app folder structure as sp
 *   NodeJS.
 *   Gulp.
 *   Browserify.
+*   SCSS.
 
 
 #Installation
@@ -27,8 +28,8 @@ npm install
 ```
 ##Setup
 ```
-##compile project
-gulp compile
+##compile project by running gulp and navigating to the 'dist' folder in your browser
+gulp
 ```
 
 #### Pull requests accepted :)
