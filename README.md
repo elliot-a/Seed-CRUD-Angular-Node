@@ -3,7 +3,7 @@ gulp-node-angular-browserify-seed
 
 #### A sexy seed project for gulp, node, angular, and browserify projects.
 
-#### Why another seed project :
+## Why another seed project :
 
 * This seed project aims to include most of the common features of an angular application, front and backend, with as little boilerplate as possible.
 
