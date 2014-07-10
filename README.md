@@ -13,6 +13,7 @@ The project uses the new Google Standards for angular app folder structure as sp
 *   Gulp.
 *   Browserify.
 *   SCSS.
+*   Bootstrap
 
 
 #Installation
