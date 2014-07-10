@@ -1,7 +1,7 @@
 var PageNavDataService = function(){
   return {
-    pages: [  { label:'nav1' },
-              { label:'nav2' }
+    pages: [  { label:'nav1', location:"home", active:true },
+              { label:'nav2', location:"about" }
     ]
   }
 };

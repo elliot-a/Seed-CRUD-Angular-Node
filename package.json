@@ -4,10 +4,13 @@
   "dependencies": {
     "angular": "1.2.19",
     "angular-router-browserify": "latest",
+    "bootstrap": "^3.2.0",
     "gulp": "3.8.x",
     "gulp-browserify": "0.5.x",
     "gulp-jshint": "1.6.4",
+    "gulp-sass": "^0.7.2",
     "gulp-util": "2.2.19",
+    "normalize.css": "^3.0.1",
     "rimraf": "2.2.8"
   },
   "devDependencies": {},

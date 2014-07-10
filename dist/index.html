@@ -6,13 +6,21 @@
     <meta charset="utf-8">
     <title>Gulp Node Angular Browserify Seed Project</title>
 
+    <link href="normalize.css" rel="stylesheet" />
+    <link href="bootstrap.min.css" rel="stylesheet" />
     <link href="app.css" rel="stylesheet" />
 
 </head>
 
 <body>
 
-    <div page-nav-directive ng-controller="PageNavController">
+    <div class="container">
+
+        <ul page-nav-directive ng-controller="PageNavController">
+        </ul>
+
+        <ng-view></ng-view>
+
     </div>
 
     <script src="./app.js"></script>

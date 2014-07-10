@@ -9,5 +9,3 @@ var pageNav = angular.module('app.pageNav', []);
 pageNav.directive('pageNavDirective', PageNavDirective);
 pageNav.controller('PageNavController', PageNavController);
 pageNav.factory('PageNavDataService', PageNavDataService);
-
-

@@ -3,38 +3,22 @@ var angular = require('angular');
 require('angular-router-browserify')(angular)
 
 var pageNav = require('./page-nav/page-nav');
+var home = require('./home/home');
+var about = require('./about/about');
 
 
 // Initiate the app and pass in required modules
 var app = angular.module('app', [ 'ngRoute',
-                                  'app.pageNav'
+                                  'app.pageNav',
+                                  'app.home',
+                                  'app.about'
 ]);
 
 
-/*
 // Setup up routing
 app.config(function($routeProvider){
-  $routeProvider.when('/', {templateUrl:'./view.html', controller:'MainController'})
-  $routeProvider.when('/', {templateUrl:'./view2.html', controller:'NavController'});
+  $routeProvider
+    .when('/home', {templateUrl:'./home/home.html', controller:'HomeController'})
+    .when('/about', {templateUrl:'./about/about.html', controller:'AboutController'})
+    .otherwise({redirectTo: '/'});
 });
-
-
-
-// Our main controller for our application
-app.controller('MainController', function(){
-
-  console.log("MainController initialized");
-
-});
-
-
-// Our main controller for our application
-app.controller('NavController', function(){
-
-  console.log("NavController initialized");
-
-});
-
-*/
-
-

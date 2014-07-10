@@ -5,7 +5,7 @@ var PageNavDirective = function(){
     replace:true,
     templateUrl:"page-nav/page-nav.html",
     link:function(scope, ele, attrs){
-      console.log("PageNavDirective initialized");
+
     }
   }
 

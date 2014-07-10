@@ -1,5 +1,5 @@
-<div class="page-nav">
-
-    <a href="#" ng-repeat="page in pages" > {{page.label}} </a>
-
-</div>
+<ul class="nav nav-pills">
+    <li ng-repeat="page in pages" ng-class="{active:page.active}" >
+        <a ng-click="navClicked(page)"> {{page.label}} </a>
+    </li>
+</ul>
