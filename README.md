@@ -1,9 +1,8 @@
 ## A seed project with an angular front end communicating with a simple Node based REST API.
-============================
 
 #### A sexy seed project for gulp, angular, browserify with a node backend (consisting of simple RESTful API and a mongoDB),
 
-## Why this seed project :
+### Why this seed project :
 
 * This seed project aims to include most of the common features of an angular application, front and backend, with as little boilerplate as possible.
 
@@ -20,7 +19,7 @@ Or if you have any changes or improvements please submit a pull request.
 
 
 
-##This project stack :
+### This project stack :
 *   AngularJS.
 *   NodeJS.
 *   Express.
@@ -31,7 +30,7 @@ Or if you have any changes or improvements please submit a pull request.
 *   Bootstrap.
 
 
-##Installation
+### Installation
 
 Make sure you have mongoDB installed before proceeding. On a mac this will look something like this :
 ```
@@ -50,7 +49,7 @@ Then get npm dependencies for client and project
 $ npm install
 ```
 
-##Setup
+### Setup
 Compile project by running gulp and navigating to the 'dist' folder in your browser
 ```
 $ gulp
