@@ -35,25 +35,25 @@ Or if you have any changes or improvements please submit a pull request.
 
 Make sure you have mongoDB installed before proceeding. On a mac this will look something like this :
 ```
-brew install mongodb
+$ brew install mongodb
 ```
 
 
 
 Then install global npm dependencies
 ```
-npm install -g gulp
+$ npm install -g gulp
 ```
 
 Then get npm dependencies for client and project
 ```
-npm install
+$ npm install
 ```
 
 ##Setup
 Compile project by running gulp and navigating to the 'dist' folder in your browser
 ```
-gulp
+$ gulp
 ```
 
 
