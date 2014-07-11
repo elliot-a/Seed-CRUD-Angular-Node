@@ -1,9 +1,9 @@
 gulp-node-angular-browserify-seed
 ============================
 
-#### A sexy seed project for gulp, node, angular, and browserify projects.
+#### A sexy seed project for gulp, angular, browserify with a node backend (consisting of simple RESTful API and a mongoDB),
 
-## Why another seed project :
+## Why this seed project :
 
 * This seed project aims to include most of the common features of an angular application, front and backend, with as little boilerplate as possible.
 
@@ -32,16 +32,30 @@ Or if you have any changes or improvements please submit a pull request.
 
 
 ##Installation
-```
-##install global npm dependencies
-npm install -g gulp
 
-##get npm dependencies
+Make sure you have mongoDB installed before proceeding. On a mac this will look something like this :
+```
+brew install mongodb
+```
+
+
+```
+## Install global npm dependencies
+npm install -g gulp
+npm install -g express
+sudo npm install -g express-generator
+
+## Get npm dependencies for client and project
 npm install
+
+## Get npm dependencies for server
+cd app/server
+npm install
+
 ```
 ##Setup
 ```
-##compile project by running gulp and navigating to the 'dist' folder in your browser
+## Compile project by running gulp and navigating to the 'dist' folder in your browser
 gulp
 ```
 
