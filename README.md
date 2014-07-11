@@ -1,4 +1,4 @@
-gulp-node-angular-browserify-seed
+An seed project with an angular front end communicating with a simple Node based REST API.
 ============================
 
 #### A sexy seed project for gulp, angular, browserify with a node backend (consisting of simple RESTful API and a mongoDB),
