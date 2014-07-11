@@ -39,23 +39,20 @@ brew install mongodb
 ```
 
 
+
+Then install global npm dependencies
 ```
-## Install global npm dependencies
 npm install -g gulp
-npm install -g express
-sudo npm install -g express-generator
-
-## Get npm dependencies for client and project
-npm install
-
-## Get npm dependencies for server
-cd app/server
-npm install
-
 ```
+
+Then get npm dependencies for client and project
+```
+npm install
+```
+
 ##Setup
+Compile project by running gulp and navigating to the 'dist' folder in your browser
 ```
-## Compile project by running gulp and navigating to the 'dist' folder in your browser
 gulp
 ```
 
