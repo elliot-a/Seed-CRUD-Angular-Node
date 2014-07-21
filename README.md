@@ -52,13 +52,16 @@ $ npm install
 ```
 $ gulp
 ```
+
 * Edit the app.js file in the 'app-server' folder to reflect the location of your client - this is marked in the 'settings' section
+
 
 * Run the node server
 ```
 $ cd app-server
 $ node app.js
 ```
+
 
 * Finally navigate to the 'dist' folder in your browser
 
