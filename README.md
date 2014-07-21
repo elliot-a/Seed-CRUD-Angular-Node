@@ -1,4 +1,4 @@
-#### A sexy seed project for gulp, angular, browserify with a node backend (consisting of simple RESTful API and a mongoDB),
+#### WORK IN PROGRESS, UNFINISHED - A sexy seed project for gulp, angular, browserify with a node backend (consisting of simple RESTful API and a mongoDB),
 
 ### Why this seed project :
 
@@ -48,10 +48,21 @@ $ npm install
 ```
 
 ### Setup
-Compile project by running gulp and navigating to the 'dist' folder in your browser
+* Compile client project by running gulp
 ```
 $ gulp
 ```
+* Edit the app.js file in the 'app-server' folder to reflect the location of your client - this is marked in the 'settings' section
+
+* Run the node server
+```
+$ cd app-server
+$ node app.js
+```
+
+* Finally navigate to the 'dist' folder in your browser
+
+
 
 
 #### Pull requests accepted :)

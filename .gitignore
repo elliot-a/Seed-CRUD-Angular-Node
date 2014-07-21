@@ -4,3 +4,4 @@ app/npm-debug.log
 .idea/*
 .idea
 dist/*
+.DS_Store

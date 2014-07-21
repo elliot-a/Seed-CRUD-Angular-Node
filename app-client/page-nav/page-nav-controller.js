@@ -1,6 +1,6 @@
-var PageNavController = function($scope, $location, PageNavDataService){
+var PageNavController = function($scope, $location, data){
 
-  $scope.pages = PageNavDataService.pages;
+  $scope.pages = data.pages;
 
   $scope.navClicked = function(page){
 
@@ -18,5 +18,7 @@ var PageNavController = function($scope, $location, PageNavDataService){
   }
 
 };
+
+PageNavController['$inject'] = ['$scope', '$location', 'PageNavDataService'];
 
 module.exports = PageNavController;
