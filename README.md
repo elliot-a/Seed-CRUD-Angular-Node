@@ -1,4 +1,4 @@
-#### WORK IN PROGRESS, UNFINISHED - A sexy seed project for gulp, angular, browserify with a node backend (consisting of simple RESTful API and a mongoDB),
+#### A sexy seed project for gulp, angular, browserify with a node backend (consisting of simple RESTful API and a mongoDB),
 
 ### Why this seed project :
 
