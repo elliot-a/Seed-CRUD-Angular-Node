@@ -1,18 +1,27 @@
 var PrettyListDirective = function(){
 
   return {
-    restrict:'A',
+    restrict:'E',
     replace:true,
     templateUrl:"components/pretty-list/pretty-list.html",
-    link:function(scope, ele, attrs){
+    controllerAs: 'ctrl',
+    controller:function($scope){
+
+      this.deleteClicked = function(index){
+        $scope.itemDeleted({item: index});
+      }
 
     },
     scope:{
       listData:'=',
-      fields:'='
+      fields:'=',
+      includeDeleteButton:'@',
+      itemDeleted:'&'
     }
   }
 
 };
+
+
 
 module.exports = PrettyListDirective;

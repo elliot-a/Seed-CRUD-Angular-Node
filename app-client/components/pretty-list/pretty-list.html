@@ -4,10 +4,14 @@
     <li class="list-group-item" ng-repeat="item in listData">
 
         <!-- Repeat over the fields for each item -->
-        <span ng-repeat="field in fields track by $index">
+        <span ng-repeat="field in fields">
             {{item[field]}}
             &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace;
         </span>
+
+        <button class="deleteButton" ng-show="includeDeleteButton" ng-click="ctrl.deleteClicked($index)" >
+            Delete Item
+        </button>
 
     </li>
 

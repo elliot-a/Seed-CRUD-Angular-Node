@@ -2,7 +2,10 @@
 
     <h3 class="homeInfo">This list data is assembled from a request to the server</h3>
 
-    <div pretty-list-directive list-data="homeController.listQuotes" fields="homeController.listFields" include-delete="true">
-    </div>
+    <pretty-list-directive  list-data               = "homeController.listQuotes"
+                            fields                  = "homeController.listFields"
+                            include-delete-button   = "true"
+                            item-deleted            = "homeController.itemDeleteClicked(item)">
+    </pretty-list-directive>
 
 </div>

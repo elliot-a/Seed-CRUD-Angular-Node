@@ -5,6 +5,15 @@ var HomeController = function($scope, apiConnect){
     this.listFields = ["author", "text"];
     this.listQuotes = [];
 
+    this.itemDeleteClicked = function(item){
+      this.listQuotes.splice(item, 1);
+      apiConnect.quote.delete({id:item}, onDelete, onError);
+    };
+
+    var onDelete = function(){
+      console.log("item deleted on server");
+    };
+
     var onResponse = function(resp){
       _this.listQuotes = resp
     };
@@ -12,6 +21,7 @@ var HomeController = function($scope, apiConnect){
     var onError = function(err){
       console.log(err);
     };
+
 
     apiConnect.quotes.query({}, onResponse, onError);
 

@@ -13,6 +13,7 @@
     "gulp-jshint": "1.6.4",
     "gulp-sass": "^0.7.2",
     "gulp-util": "2.2.19",
+    "jquery": "^2.1.1",
     "normalize.css": "^3.0.1",
     "rimraf": "2.2.8"
   },
