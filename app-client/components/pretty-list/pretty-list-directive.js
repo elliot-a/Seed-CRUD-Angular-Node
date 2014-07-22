@@ -6,6 +6,10 @@ var PrettyListDirective = function(){
     templateUrl:"components/pretty-list/pretty-list.html",
     link:function(scope, ele, attrs){
 
+    },
+    scope:{
+      listData:'=',
+      fields:'='
     }
   }
 

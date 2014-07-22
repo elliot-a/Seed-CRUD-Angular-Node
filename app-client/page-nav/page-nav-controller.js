@@ -19,6 +19,7 @@ var PageNavController = function($scope, $location, data){
 
 };
 
+// Inject our dependencies
 PageNavController['$inject'] = ['$scope', '$location', 'PageNavDataService'];
 
 module.exports = PageNavController;

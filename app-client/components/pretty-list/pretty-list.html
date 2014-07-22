@@ -1,1 +1,14 @@
-<div></div>
+<ul class="list-group">
+
+    <!-- Repeat over the list items -->
+    <li class="list-group-item" ng-repeat="item in listData">
+
+        <!-- Repeat over the fields for each item -->
+        <span ng-repeat="field in fields track by $index">
+            {{item[field]}}
+            &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace;
+        </span>
+
+    </li>
+
+</ul>

@@ -1,26 +1,24 @@
 var HomeController = function($scope, apiConnect){
 
+    var _this = this;
+
+    this.listFields = ["author", "text"];
+    this.listQuotes = [];
+
     var onResponse = function(resp){
-      console.log(resp);
-
-      resp.author = "elliot agro";
-
-      resp.$save({id:1});
-
+      _this.listQuotes = resp
     };
 
     var onError = function(err){
       console.log(err);
     };
 
-    apiConnect.quote.get({id:1}, onResponse, onError);
+    apiConnect.quotes.query({}, onResponse, onError);
 
-    var tim = setTimeout(function(){
-      apiConnect.quote.get({id:1}, onResponse, onError);
-    }, 2000)
 
 };
 
+// Inject our dependencies
 HomeController['$inject'] = ['$scope', 'APIConnectService'];
 
 module.exports = HomeController;

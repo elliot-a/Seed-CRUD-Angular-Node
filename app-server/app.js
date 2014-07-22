@@ -2,7 +2,7 @@
 // ------------------------- Settings ---------------------------------
 
 // CHANGE THIS URL TO REFLECT THE LOCATION OF YOUR CLIENT
-const CLIENT_URL = 'http://localhost:63342';
+const CLIENT_URL = 'http://pixely.dev';
 
 // --------------------------------------------------------------------
 
@@ -49,8 +49,8 @@ var quotes = [
 ];
 
 
-// Create default route
-app.get('/', function(req, res) {
+// Get all quotes
+app.get('/quote', function(req, res) {
   res.json(quotes);
 });
 
