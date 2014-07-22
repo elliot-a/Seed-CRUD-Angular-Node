@@ -11,7 +11,6 @@
 * By including common features it is hoped that you can just hit the ground running and copy and paste bits of code, and edit other bits to quickly edit the project into a custom angular application without any of the setup.
 
 
-
 If you think I have missed anything out that is used frequently - let me know!!
 Or if you have any changes or improvements please submit a pull request.
 
