@@ -2,7 +2,7 @@
 
 ### Why this seed project :
 
-* This seed project aims to include most of the common features of an angular application, front and backend, with as little boilerplate as possible.
+* This seed project aims to include most of the common features of an angular application, front and backend. This should give an easy base to start a new application.
 
 * It uses a very neat implementation of browserify/angular
 
@@ -15,6 +15,7 @@
 If you think I have missed anything out that is used frequently - let me know!!
 Or if you have any changes or improvements please submit a pull request.
 
+Much of this seed project has been assembled from tutorials and other projects from the internet - if you recognize some code its because I copied it from you! :) thanks for that.
 
 
 ### This project stack :
