@@ -15,7 +15,6 @@ var HomeController = function($scope, apiConnect){
 
     apiConnect.quotes.query({}, onResponse, onError);
 
-
 };
 
 // Inject our dependencies
