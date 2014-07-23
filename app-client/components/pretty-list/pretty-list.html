@@ -1,18 +1,28 @@
-<ul class="list-group">
+<div class="prettyListWrapper well">
 
-    <!-- Repeat over the list items -->
-    <li class="list-group-item" ng-repeat="item in listData">
+    <!-- Any html within our directive tags will be rendered within this div using transclude -->
+    <div ng-transclude>
 
-        <!-- Repeat over the fields for each item -->
-        <span ng-repeat="field in fields">
-            {{item[field]}}
-            &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace;
-        </span>
+    </div>
 
-        <button class="deleteButton" ng-show="includeDeleteButton" ng-click="ctrl.deleteClicked($index)" >
-            Delete Item
-        </button>
+    <ul class="list-group">
 
-    </li>
+        <!-- Repeat over the list items -->
+        <li class="list-group-item" ng-repeat="item in listData">
 
-</ul>
+            <!-- Repeat over the fields for each item -->
+            <span ng-repeat="field in fields">
+                {{item[field]}}
+                &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace;
+            </span>
+
+            <!-- If the 'includeDeleteButton' is truthy then show the delete button - on click this triggers a method on the directives anonymous controller-->
+            <button class="deleteButton" ng-show="includeDeleteButton" ng-click="ctrl.deleteClicked($index)" >
+                Delete Item
+            </button>
+
+        </li>
+
+    </ul>
+
+</div>

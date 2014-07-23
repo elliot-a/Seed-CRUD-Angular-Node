@@ -4,6 +4,13 @@ var PrettyListDirective = function(){
     restrict:'E',
     replace:true,
     templateUrl:"components/pretty-list/pretty-list.html",
+    transclude:true,
+    scope:{
+      listData:'=',
+      fields:'=',
+      includeDeleteButton:'@',
+      itemDeleted:'&'
+    },
     controllerAs: 'ctrl',
     controller:function($scope){
 
@@ -11,17 +18,10 @@ var PrettyListDirective = function(){
         $scope.itemDeleted({item: index});
       }
 
-    },
-    scope:{
-      listData:'=',
-      fields:'=',
-      includeDeleteButton:'@',
-      itemDeleted:'&'
     }
   }
 
 };
-
 
 
 module.exports = PrettyListDirective;

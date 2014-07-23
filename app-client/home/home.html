@@ -1,4 +1,4 @@
-<div class="well">
+<div>
 
     <h3 class="homeInfo">This list data is assembled from a request to the server</h3>
 
@@ -6,6 +6,10 @@
                             fields                  = "homeController.listFields"
                             include-delete-button   = "true"
                             item-deleted            = "homeController.itemDeleteClicked(item)">
+
+        <!-- This title element is 'transcluded' into our pretty-list-directive -->
+        <h3>Quotes List</h3>
+
     </pretty-list-directive>
 
 </div>
