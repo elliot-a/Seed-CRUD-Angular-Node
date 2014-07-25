@@ -1,9 +1,36 @@
 var gulp        = require('gulp');
 var gutil       = require('gulp-util');
+var gulpFn      = require('gulp-fn');
 var jshint      = require('gulp-jshint');
 var browserify  = require('gulp-browserify');
 var sass        = require('gulp-sass');
 var rimraf      = require('rimraf');
+
+
+// Adds some data to the database
+gulp.task('databaseSetup', function(){
+
+  var db          = require('monk')('localhost:27017/quotesDatabase');
+
+  // Clear any old collections and create a new quotes collection
+  db.get("quotes").drop();
+  var quotes = db.get("quotes");
+
+  gulp.src('sampleData.json').pipe(gulpFn(
+
+    function (data){
+
+      quotes.insert(data, function (err) {
+        if(err){
+          console.log(err);
+        }
+      });
+
+    }
+
+  ));
+
+});
 
 
 // Checks your code quality

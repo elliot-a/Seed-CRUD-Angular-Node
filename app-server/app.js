@@ -8,11 +8,23 @@ const CLIENT_URL = 'http://pixely.dev';
 
 
 
-
 // Create a new server instance
-var express = require('express');
-var bodyParser = require('body-parser');
-var app = express();
+var express     = require('express');
+var bodyParser  = require('body-parser');
+var app         = express();
+
+// Add Database connectivity libs
+var db          = require('monk')('localhost:27017/quotesDatabase');
+
+
+// Clear any old collections and create a new quotes collection
+var quotes = db.get("quotes");
+
+// print out contents of the quotes collection
+quotes.find({}, {}, function (err, docs) {
+  if(err) return console.log(err);
+  console.log(docs);
+});
 
 
 // Add body parsing
@@ -40,23 +52,21 @@ app.use(function (req, res, next) {
 });
 
 
-// Sample Data
-var quotes = [
-  { author : 'Audrey Hepburn',        text : "Nothing is impossible, the word itself says 'I'm possible'!"},
-  { author : 'Walt Disney',           text : "You may not realize it when it happens, but a kick in the teeth may be the best thing in the world for you"},
-  { author : 'Unknown',               text : "Even the greatest was once a beginner. Don't be afraid to take that first step."},
-  { author : 'Neale Donald Walsch',   text : "You are afraid to die, and you're afraid to live. What a way to exist."}
-];
-
 
 // Get all quotes
 app.get('/quote', function(req, res) {
-  res.json(quotes);
+
+  quotes.find({}, {}, function (err, docs) {
+    if(err) return console.log(err);
+    res.json(docs);
+  });
+
 });
 
 
 // Get a random quote
 app.get('/quote/random', function(req, res) {
+
   var randomIndex = Math.floor((Math.random() * quotes.length));
   res.json(quotes[randomIndex]);
 });
@@ -64,6 +74,7 @@ app.get('/quote/random', function(req, res) {
 
 // Get a quote by ID
 app.get('/quote/:id', function(req, res) {
+
   if(quotes.length <= req.params.id || req.params.id < 0) {
     res.statusCode = 404;
     return res.send('Error 404: No quote found');
@@ -75,6 +86,7 @@ app.get('/quote/:id', function(req, res) {
 
 // Delete a quote by ID
 app.delete('/quote/:id', function(req, res) {
+
   if(quotes.length <= req.params.id) {
     res.statusCode = 404;
     return res.send('Error 404: No quote found');

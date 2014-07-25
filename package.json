@@ -10,10 +10,12 @@
     "express": "^4.5.1",
     "gulp": "3.8.x",
     "gulp-browserify": "0.5.x",
+    "gulp-fn": "0.0.0",
     "gulp-jshint": "1.6.4",
     "gulp-sass": "^0.7.2",
     "gulp-util": "2.2.19",
     "jquery": "^2.1.1",
+    "monk": "^0.9.0",
     "normalize.css": "^3.0.1",
     "rimraf": "2.2.8"
   },
