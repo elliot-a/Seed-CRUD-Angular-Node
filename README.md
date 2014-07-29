@@ -48,8 +48,9 @@ $ npm install
 ```
 
 ### Setup
-Compile client project by running gulp
+Compile client project by running gulp tasks
 ```
+$ gulp setup
 $ gulp
 ```
 
