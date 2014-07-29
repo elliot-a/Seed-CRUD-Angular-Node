@@ -8,18 +8,34 @@
     <ul class="list-group">
 
         <!-- Repeat over the list items -->
-        <li class="list-group-item" ng-repeat="item in listData">
+        <li class="list-group-item" ng-repeat="item in listData" data-id="{{item[idField]}}">
 
             <!-- Repeat over the fields for each item -->
-            <span ng-repeat="field in fields">
-                {{item[field]}}
+            <span ng-repeat="field in fields" ng-hide="item.editing">
+                {{item[field]}},
                 &NonBreakingSpace; &NonBreakingSpace; &NonBreakingSpace;
             </span>
 
-            <!-- If the 'includeDeleteButton' is truthy then show the delete button - on click this triggers a method on the directives anonymous controller-->
-            <button class="deleteButton" ng-show="includeDeleteButton" ng-click="ctrl.deleteClicked($index)" >
-                Delete Item
-            </button>
+            <div class="editingItemBox" ng-show="item.editing" >
+                <input type="text" ng-model="editedValue"/>
+                <button class="submitEditButton" ng-click="ctrl.itemEdited(item[idField], $index, editedValue)" >
+                    Submit
+                </button>
+            </div>
+
+            <div class="buttons">
+
+                <!-- If the 'includeDeleteButton' is truthy then show the delete button - on click this triggers a method on the directives anonymous controller-->
+                <button class="deleteButton" ng-show="includeDeleteButton" ng-click="ctrl.deleteClicked(item[idField], $index)" >
+                    Delete Item
+                </button>
+
+                <!-- If the 'includeEditButton' is truthy then show the edit button - on click this triggers a method on the directives anonymous controller-->
+                <button class="editButton" ng-show="includeEditButton" ng-click="ctrl.editClicked(item[idField], $index)" >
+                    Edit Item
+                </button>
+
+            </div>
 
         </li>
 

@@ -1,11 +1,11 @@
 
 // ------------------------- Settings ---------------------------------
 
-// CHANGE THIS URL TO REFLECT THE LOCATION OF YOUR CLIENT
-const CLIENT_URL = 'http://pixely.dev';
+// CHANGE THIS URL TO REFLECT THE DOMAIN OF YOUR CLIENT -
+// The setting below will probably be correct if using WebStorm and open your client by clicking 'open in browser on dist/index.html'
+const CLIENT_URL = 'http://localhost:63342';
 
 // --------------------------------------------------------------------
-
 
 
 // Create a new server instance
@@ -17,18 +17,12 @@ var app         = express();
 var db          = require('monk')('localhost:27017/quotesDatabase');
 
 
-// Clear any old collections and create a new quotes collection
+// Get the quotes collection
 var quotes = db.get("quotes");
 
-// print out contents of the quotes collection
-quotes.find({}, {}, function (err, docs) {
-  if(err) return console.log(err);
-  console.log(docs);
-});
-
-
 // Add body parsing
-app.use(bodyParser.json());
+app.use( bodyParser.json() );
+app.use( bodyParser.urlencoded( {extended: true} ) );
 
 
 // Add headers
@@ -52,7 +46,6 @@ app.use(function (req, res, next) {
 });
 
 
-
 // Get all quotes
 app.get('/quote', function(req, res) {
 
@@ -67,40 +60,54 @@ app.get('/quote', function(req, res) {
 // Get a random quote
 app.get('/quote/random', function(req, res) {
 
-  var randomIndex = Math.floor((Math.random() * quotes.length));
-  res.json(quotes[randomIndex]);
+  var promise = quotes.count({});
+
+  promise.on('complete', function(err, count){
+
+    var randomIndex = Math.floor( (Math.random() * count) );
+
+    quotes.find( {}, { limit:-1, skip:randomIndex }, (function (err, docs) {
+      if(err) return console.log(err);
+      res.json(docs);
+    }));
+
+  });
+
 });
 
-
-// Get a quote by ID
-app.get('/quote/:id', function(req, res) {
-
-  if(quotes.length <= req.params.id || req.params.id < 0) {
-    res.statusCode = 404;
-    return res.send('Error 404: No quote found');
-  }
-  var q = quotes[req.params.id];
-  res.json(q);
-});
 
 
 // Delete a quote by ID
 app.delete('/quote/:id', function(req, res) {
 
-  if(quotes.length <= req.params.id) {
+  console.log('deleting : ' + req.params.id);
+
+  var promise = quotes.remove({_id:req.params.id});
+
+  promise.on('error', function(err){
+    console.log(err);
     res.statusCode = 404;
     return res.send('Error 404: No quote found');
-  }
+  });
 
-  quotes.splice(req.params.id, 1);
-  res.json(true);
+  promise.on('success', function(doc){});
+
+  promise.on('complete', function(err, doc){
+    console.log(err);
+    console.log(doc);
+    res.json(true);
+  });
+
+
 });
 
 
 // Edit a specific quote
 app.post('/quote/:id', function(req, res) {
 
-  if(!req.params.hasOwnProperty('id') || !req.body.hasOwnProperty('author') || !req.body.hasOwnProperty('text')) {
+  console.log('editing : ' + req.params.id);
+
+  if(!req.body.hasOwnProperty('author') || !req.body.hasOwnProperty('text') ) {
     res.statusCode = 400;
     return res.send('Error 400: Post syntax incorrect.');
   }
@@ -110,13 +117,23 @@ app.post('/quote/:id', function(req, res) {
     text : req.body.text
   };
 
-  quotes[req.params.id] = newQuoteData;
+  var promise = quotes.updateById(req.params.id, newQuoteData);
 
-  res.json(true);
+  promise.on('complete', function(err, doc){
+      res.json(true);
+    }
+  );
+
+  promise.on('error', function(err){
+      console.log(err);
+      res.statusCode = 404;
+      return res.send('Error 404: Quote not updated');
+    }
+  );
 
 });
 
-
+/*
 // Add a new Quote
 app.post('/quote/new', function(req, res) {
 
@@ -134,6 +151,7 @@ app.post('/quote/new', function(req, res) {
   res.json(true);
 
 });
+*/
 
 
 // Listen for connections

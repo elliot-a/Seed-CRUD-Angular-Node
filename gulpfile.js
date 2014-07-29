@@ -5,10 +5,11 @@ var jshint      = require('gulp-jshint');
 var browserify  = require('gulp-browserify');
 var sass        = require('gulp-sass');
 var rimraf      = require('rimraf');
+var fs          = require('fs');
 
 
 // Adds some data to the database
-gulp.task('databaseSetup', function(){
+gulp.task('setup', function(){
 
   var db          = require('monk')('localhost:27017/quotesDatabase');
 
@@ -16,19 +17,25 @@ gulp.task('databaseSetup', function(){
   db.get("quotes").drop();
   var quotes = db.get("quotes");
 
-  gulp.src('sampleData.json').pipe(gulpFn(
-
-    function (data){
-
-      quotes.insert(data, function (err) {
-        if(err){
-          console.log(err);
-        }
-      });
-
+  // read json object and add the items into the database
+  fs.readFile('sampleData.json', 'utf8', function (err, data) {
+    if (err) {
+      console.log('Error: ' + err);
+      return;
     }
 
-  ));
+    data = JSON.parse(data);
+    console.dir(data);
+
+    // insert all the items into the DB
+    quotes.insert(data, function (err) {
+      if(err){
+        console.log(err);
+      }
+    });
+
+  });
+
 
 });
 

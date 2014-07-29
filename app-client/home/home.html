@@ -3,9 +3,13 @@
     <h3 class="homeInfo">This list data is assembled from a request to the server</h3>
 
     <pretty-list-directive  list-data               = "homeController.listQuotes"
+                            id-field                = "_id"
                             fields                  = "homeController.listFields"
                             include-delete-button   = "true"
-                            item-deleted            = "homeController.itemDeleteClicked(item)">
+                            include-edit-button     = "true"
+                            include-add-new-button  = "true"
+                            item-edited             = "homeController.itemEdited(id, item, value)"
+                            item-deleted            = "homeController.itemDeleteClicked(id, item)">
 
         <!-- This title element is 'transcluded' into our pretty-list-directive -->
         <h3>Quotes List</h3>

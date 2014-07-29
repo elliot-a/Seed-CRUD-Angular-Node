@@ -4,4 +4,7 @@ a               { cursor: pointer }
 
 .homeInfo       { margin-bottom:20px}
 
-.deleteButton   { float:right}
+
+.buttons        { position:absolute; right:0; top:0 }
+.buttons button { margin-right:10px; margin-top:8px }
+.editingBox     { width:500px;}
